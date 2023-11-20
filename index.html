@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PEASEA</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <h1>Demonstration of Path Finding Algorithms</h1>
+    <p>Use arrow keys to move around.</p>
+    <div class="wrap">
+      <div class="top">
+        <button onclick="maze.reset();">Generate Maze</button>
+        <button onclick="maze.generateMultipleSolutions();">
+          Generate Maze with Multiple Solutions
+        </button>
+        <button onclick="maze.generateRandomEnd();">Generate Random End</button>
+        <button onclick="maze.clearMazeAndReset();">Reset</button>
+      </div>
+      <div class="bottom">
+        <button onclick="maze.solve();">Solve BFS</button>
+        <button onclick="maze.solveDFS();">Solve DFS</button>
+        <button onclick="maze.solveAStar();">Solve A*</button>
+        <button onclick="maze.solveDijkstra();">Solve Dijkstra</button>
+      </div>
+    </div>
+    <div id="grid"></div>
+    <script src="app.js"></script>
+    <script>
+      window.onload = function () {
+        window.maze = new Maze({
+          gridElement: document.getElementById("grid"),
+          gridSize: new Point(20, 10),
+          blockSize: 25,
+          onSolved: function () {
+            setTimeout(function () {
+              alert("A maze ing!");
+            }, 200);
+          },
+        });
+        maze.reset();
+      };
+    </script>
+  </body>
+</html>
