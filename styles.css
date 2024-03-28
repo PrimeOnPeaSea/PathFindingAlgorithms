@@ -1,6 +1,6 @@
 body {
-  background: black;
-  color: white;
+  background: #f0f0f0;
+  color: #333;
   font-family: Arial;
   display: flex;
   overflow: hidden;
@@ -22,6 +22,44 @@ body {
   position: relative;
 }
 
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.wrap .top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.wrap .bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.wrap button {
+  margin: 10px;
+  padding: 10px;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.wrap button:hover {
+  background: #666;
+}
+
 #grid {
   display: grid;
   grid-template-columns: repeat(20, 25px);
@@ -30,7 +68,7 @@ body {
 }
 
 .block {
-  border: 1px solid black;
+  border: 1px solid #333;
   position: absolute;
   margin: 1px;
   width: 25px;
@@ -45,23 +83,46 @@ body {
 }
 
 .block.generated {
-  background: #fff;
+  background: #f0f0f0;
 }
 
 .block.generated.target {
-  background: #ffd27f;
+  background: skyblue;
 }
 
 .block.generated.visited {
-  background: #eef;
+  background: #999;
 }
 
 .block.generated.visited.path {
-  background: #aaf;
+  background: cyan;
 }
 
 .block.current {
-  background: #0f0 !important;
+  background: black !important;
+}
+
+/* Eyes */
+.block.current::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  top: 5px;
+  left: 5px;
+}
+
+.block.current::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  top: 5px;
+  right: 5px;
 }
 
 .block.current.target {
@@ -86,9 +147,4 @@ body {
 
 .block.top {
   border-top: 1px solid transparent;
-}
-
-a,
-a:visited {
-  color: green;
 }
