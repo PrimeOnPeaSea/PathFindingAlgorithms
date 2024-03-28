@@ -14,10 +14,19 @@ body {
   justify-content: space-evenly;
   align-items: center;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 #grid {
-  position: absolute;
-  left: 20%;
-  top: 40%;
+  display: grid;
+  grid-template-columns: repeat(20, 25px);
+  grid-template-rows: repeat(20, 25px);
+  position: relative;
 }
 
 .block {
